@@ -1,0 +1,39 @@
+---
+word_document: default
+author: "Tobi"
+date: "2023-06-16"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+title: "Untitled"
+html_document: default
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(DT)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rst
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r echo=FALSE}
+mydata1<-read_xlsx("belongingdata.xlsx")
+ds<-cor.test(mydata1$TotalBelonging,mydata1$AverageBelonging)
+summary(ds)
+```
+
+## Including Table
+
+You can also embed Tables, for example:
+
+```{r echo=FALSE}
+datatable(mydata1, width = "100", height = "auto")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

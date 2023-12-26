@@ -1,0 +1,48 @@
+---
+title: "MY Report"
+author: "Olagunju Tobi"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+library(DT)
+library(readxl)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Testing data
+The obeservation of test
+```{r echo=FALSE}
+mydata2<-read_xlsx("belongingdata.xlsx")
+ds<-cor.test(mydata2$TotalBelonging,mydata2$AverageBelonging)
+ds
+summary(ds)
+```
+After running a correlation test between totalbelonging and age
+The output provides:
+1.	An explanation of what is being compared, called data in the output table.
+2.	The t value: -2.6227 ; which indicate no significant of the
+3.	The degree freedom: 3247 (N-1) * (C-1)
+4.	The p value: 0.008763
+5.	A statement of the alternative hypothesis the difference is not 0.
+6.	Confidence interval is not greater than our p value
+
+## View Table
+Here is the table for our dataset human belonging a Likerscale data
+```{r echo=FALSE}
+datatable(mydata2, width = "100", height = "auto")
+```
+
+## Plot
+
+```{r echo=FALSE}
+ggplot(mydata2, aes(TotalBelonging)) +
+  geom_density(alpha = 0.5)
+plot(mydata2$TotalBelonging~mydata2$AverageBelonging, xlab = "a", ylab = "c")
+```
+
+Conclusion: We reject our result because our p value  is not up-to confidence interval which is 0.05 and hence our null hypothesis is rejected. So we can say there is relations to friendship

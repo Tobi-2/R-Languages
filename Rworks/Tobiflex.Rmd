@@ -1,0 +1,62 @@
+---
+title: "AIR QUALITY DATA ANALYSIS FOR THE PERIOD 2000-2010"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(datasets)
+library(DT)
+airquality
+```
+# Data visual
+======================================================================
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+plot(airquality$Solar.R~airquality$Temp)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+hist(airquality$Wind)
+```
+
+### Chart C
+
+```{r}
+plot(airquality$Temp)
+```
+
+# continuation of visual
+=====================================================================
+
+Column {width-data=500}
+---------------------------------------------------------------------
+### chart D
+```{r}
+hist(airquality$Solar.R)
+```
+
+### chart E
+```{r}
+plot(airquality$Wind)
+```
+
+Column {data-width=500}
+---------------------------------------------------------------------
+### Data Table
+```{r}
+datatable(airquality, width="100", height = "auto")
+```
