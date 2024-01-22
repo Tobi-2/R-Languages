@@ -1,3 +1,4 @@
+# Download the dataset from Kaggle
 # Install and load necessary packages
 if (!require(shiny)) install.packages("shiny")
 if (!require(dplyr)) install.packages("dplyr")
